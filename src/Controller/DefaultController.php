@@ -14,10 +14,15 @@ class DefaultController extends Controller
     {
         return $this->render('default/index.html.twig');
     }
-    
+    /**
+     * @Route("/about", name="aboutpage")
+     */
     public function aboutAction() {
         return $this->render('default/about.html.twig');
     }
+     /**
+     * @Route("/contact", name="contactpage")
+     */
     public function contactAction() {
         return $this->render('default/contact.html.twig');
     }

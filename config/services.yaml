@@ -26,9 +26,21 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-    admin.category:
+    sonata.admin.admin.category:
         class: App\Admin\CategoryAdmin
         arguments: [~, App\Entity\Category, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Category }
+            - { name: sonata.admin, manager_type: orm, group: staff, label: Category }
+        public: true
+    sonata_admin.admin.product:
+        class: App\Admin\ProductAdmin
+        arguments: [~, App\Entity\Product, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm,group: staff, label: Product }
+        public: true
+    sonata_admin.admin.services:
+        class: App\Admin\ServicesAdmin
+        arguments: [~, App\Entity\Services, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: staff, label: Services }
         public: true

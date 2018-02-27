@@ -25,9 +25,16 @@ class Services
      */
     private $description;
     /**
+     * @ORM\Column(type="decimal")
+     */
+    private $price;
+    /**
      * @ORM\Column(type="boolean")
      */
     private $isActive;
+    
+
+    
 
 
     /**
@@ -94,6 +101,26 @@ class Services
     public function setIsActive($isActive)
     {
         $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of price
+     */ 
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set the value of price
+     *
+     * @return  self
+     */ 
+    public function setPrice($price)
+    {
+        $this->price = $price;
 
         return $this;
     }

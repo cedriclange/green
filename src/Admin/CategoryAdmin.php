@@ -1,5 +1,5 @@
 <?php 
-// src/AppBundle/Admin/CategoryAdmin.php
+// src/App/Admin/CategoryAdmin.php
 namespace App\Admin;
 
 use Sonata\AdminBundle\Admin\AbstractAdmin;
@@ -21,7 +21,14 @@ class CategoryAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('name');
+        $listMapper->addIdentifier('name')
+        ->add('_action', null, [
+            'actions' => [
+                'show' => [],
+                'edit' => [],
+                'delete' => [],
+            ],
+        ]);
     }
 }
 ?>

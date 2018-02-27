@@ -122,6 +122,9 @@
             "ref": "aaddfdf43cdecd4cf91f992052d76c2cadc04543"
         }
     },
+    "sensio/generator-bundle": {
+        "version": "v3.1.7"
+    },
     "sonata-project/admin-bundle": {
         "version": "3.31",
         "recipe": {

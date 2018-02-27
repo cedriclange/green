@@ -130,7 +130,7 @@ class Product
     /**
      * Get the value of category
      */ 
-    public function getCategory(): Category
+    public function getCategory()
     {
         return $this->category;
     }

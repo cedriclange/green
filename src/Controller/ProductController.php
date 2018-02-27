@@ -19,7 +19,7 @@ class ProductController extends Controller
         ]);
     }
     /**
-     * @Route("/product/{id}, name="show_product")
+     * @Route("/product/{id}", name="show_product")
      */
     public function getSingle($id)
     {

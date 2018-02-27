@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
+ * @ORM\Table(name="product_table")
  */
 class Product
 {
@@ -24,6 +25,11 @@ class Product
      * @ORM\Column(type="text")
      */
     private $description;
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="products")
+     * @ORM\JoinColumn(name="category_id")
+     */
+    private $category;
      /**
      * @ORM\Column(type="decimal")
      */
@@ -117,6 +123,26 @@ class Product
     public function setIsDeleted($isDeleted)
     {
         $this->isDeleted = $isDeleted;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of category
+     */ 
+    public function getCategory(): Category
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set the value of category
+     *
+     * @return  self
+     */ 
+    public function setCategory(Category $category)
+    {
+        $this->category = $category;
 
         return $this;
     }

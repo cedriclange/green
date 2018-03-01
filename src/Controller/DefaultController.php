@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use App\Entity\Category;
 
 class DefaultController extends Controller
 {
@@ -12,8 +13,11 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('default/index.html.twig');
+        $repo = $this->getDoctrine()->getRepository(Category::class);
+        $categories = $repo->findAll();        
+        return $this->render('default/index.html.twig',['categories'=>$categories]);
     }
+
     /**
      * @Route("/about", name="aboutpage")
      */

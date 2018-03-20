@@ -32,7 +32,10 @@ class Services
      * @ORM\Column(type="boolean")
      */
     private $isActive;
-    
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isNew;
 
     
 
@@ -121,6 +124,26 @@ class Services
     public function setPrice($price)
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of isNew
+     */ 
+    public function getIsNew()
+    {
+        return $this->isNew;
+    }
+
+    /**
+     * Set the value of isNew
+     *
+     * @return  self
+     */ 
+    public function setIsNew($isNew)
+    {
+        $this->isNew = $isNew;
 
         return $this;
     }

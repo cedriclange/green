@@ -38,6 +38,10 @@ class Product
      * @ORM\Column(type="boolean")
      */
     private $isDeleted;
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private  $isNew;
 
     /**
      * Get the value of id
@@ -143,6 +147,26 @@ class Product
     public function setCategory(Category $category)
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of isNew
+     */ 
+    public function getIsNew()
+    {
+        return $this->isNew;
+    }
+
+    /**
+     * Set the value of isNew
+     *
+     * @return  self
+     */ 
+    public function setIsNew($isNew)
+    {
+        $this->isNew = $isNew;
 
         return $this;
     }

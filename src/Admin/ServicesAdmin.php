@@ -17,6 +17,7 @@ class ServicesAdmin extends AbstractAdmin
             ->add('name')
             ->add('description')
             ->add('price')
+            ->add('isNew')
             ->add('isActive')
         ;
     }
@@ -28,6 +29,7 @@ class ServicesAdmin extends AbstractAdmin
             ->add('name')
             ->add('description')
             ->add('price')
+            ->add('isNew')
             ->add('isActive')
             ->add('_action', null, [
                 'actions' => [
@@ -46,6 +48,7 @@ class ServicesAdmin extends AbstractAdmin
             ->add('name')
             ->add('description')
             ->add('price')
+            ->add('isNew')
             ->add('isActive')
         ;
     }
@@ -57,6 +60,7 @@ class ServicesAdmin extends AbstractAdmin
             ->add('name')
             ->add('description')
             ->add('price')
+            ->add('isNew')
             ->add('isActive')
         ;
     }

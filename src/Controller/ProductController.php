@@ -28,11 +28,22 @@ class ProductController extends Controller
     /**
      * @Route("/product/{id}", name="show_product")
      */
-    public function getSingle($id)
-    {
+    public function detailAction($id)
+    {   
+        //retrive product from database
+        $repo = $this->getDoctrine()->getRepository(Product::class);
+        $catrepo = $this->getDoctrine()->getRepository(Category:: class);
+
+        $product = $repo->findOneBy(['id'=>$id]);
+
+        if ($product != null) {
+            $categories = $catrepo->findAll();
+            return $this->render('product/details.html.twig',[
+                'product'=>$product, 'categories'=>$categories]);
+        }
 
     }
-    function getHeader() : array {
+    private function getHeader() : array {
         $repo = $this->getDoctrine()->getRepository(Category::class);
         $categories = $repo->findAll();
         return $categories;        

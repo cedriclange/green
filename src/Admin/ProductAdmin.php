@@ -22,6 +22,7 @@ class ProductAdmin extends AbstractAdmin
         ->add('category',ModelType::class,[           
             'property'=>'name',           
         ])
+        ->add('isNew')
         ->add('isDeleted');
 
          
@@ -40,6 +41,7 @@ class ProductAdmin extends AbstractAdmin
                     ->add('description')
                     ->add('price')
                     ->add('isDeleted')
+                    ->add('isNew')
                     ->add('_action', null, [
                         'actions' => [
                             'show' => [],

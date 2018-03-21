@@ -32,12 +32,13 @@ class ServicesController extends Controller
      */
     function detailAction($id, Request $request) 
     {
-        $data = array();
+        
         $repo = $this->getDoctrine()->getRepository(Services::class);
         $service = $repo->find($id);
         
-
-        
+       
+        $data = array('service'=>$service->getName());
+       
 
         //build the form for confirmation
         
@@ -46,7 +47,7 @@ class ServicesController extends Controller
         ->add('name', TextType::class)
         ->add('phone', TextType::class)
         ->add('email', EmailType::class)
-        ->add('send', SubmitType::class, array('label'=>'Confirmer'))
+        ->add('send', SubmitType::class, array('label'=>'ENVOYER'))
         ->getForm();
 
         $form->handleRequest($request);
@@ -60,37 +61,6 @@ class ServicesController extends Controller
             'form' => $form->createView(),'service' => $service ));
     
     }
-    /**
-     * @Route("/services/order", name="order_service")
-     */
-    function orderAction($id,Request $request) 
-    {
-        $em = $this->getDoctrine()->getRepository(Services::class);
-        $sv = $em->find($id);
-
-        
-            //build the form for confirmation
-            $data = array('service_name'=>$sv.name);
-            $form = $this->createFormBuilder($data)
-            ->add('service_name',HiddenType::class)
-            ->add('name', TextType::class)
-            ->add('phone', TextType::class)
-            ->add('email', EmailType::class)
-            ->add('send', SubmitType::class, array('label'=>'Confirmer'))
-            ->getForm();
-            $form->handleRequest($request);
-
-            if ($form->isSubmitted() && $form->isValid()) 
-            {
-                // ... perform some action, such as saving the task to the database
-                return $this->redirectToRoute('task_success');
-            }
-                
-            return $this->render('services/detail.html.twig', array(
-                'form' => $form->createView(),'service' => $service ));
-
-
-        
-    }
+    
     
 }

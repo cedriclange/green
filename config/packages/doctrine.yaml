@@ -74,3 +74,15 @@ sonata_doctrine_orm_admin:
                 percent:    "@SonataAdmin/CRUD/base_percent.html.twig"
                 choice:     "@SonataAdmin/CRUD/show_choice.html.twig"
                 url:        "@SonataAdmin/CRUD/show_url.html.twig"
+
+doctrine:
+    orm:
+        entity_managers:
+            default:
+                mappings:
+                    #ApplicationSonataMediaBundle: ~
+                    SonataMediaBundle: ~
+
+    dbal:
+        types:
+            json: Sonata\Doctrine\Types\JsonType

@@ -7,6 +7,7 @@ sonata_media:
     db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr it is mandatory to choose one here
     default_context: default # you need to set a context
     contexts:
+        
         default:  # the default context is mandatory
             providers:
                 - sonata.media.provider.dailymotion
@@ -15,6 +16,18 @@ sonata_media:
                 - sonata.media.provider.file
                 - sonata.media.provider.vimeo
 
+            formats:
+                small: { width: 100 , quality: 70}
+                big:   { width: 500 , quality: 70}
+        product:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                small: { width: 100 , quality: 70}
+                big:   { width: 500 , quality: 70}
+        service:
+            providers:
+                - sonata.media.provider.image
             formats:
                 small: { width: 100 , quality: 70}
                 big:   { width: 500 , quality: 70}

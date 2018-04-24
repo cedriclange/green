@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Form\Type\ModelType;
-
+use Sonata\MediaBundle\Form\Type\MediaType;
 
 class ProductAdmin extends AbstractAdmin
 {
@@ -24,9 +24,9 @@ class ProductAdmin extends AbstractAdmin
         ])
         ->add('isNew')
         ->add('isDeleted')
-        ->add('media', 'sonata_media_type', array(
+        ->add('media', MediaType::class, array(
             'provider' => 'sonata.media.provider.image',
-            'context'  => 'engine'
+            'context'  => 'product'
        ));
 
          

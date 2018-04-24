@@ -34,6 +34,11 @@ class Product
      * @ORM\Column(type="decimal")
      */
     private $price;
+    /**
+     * @var App\Application\Sonata\MediaBundle\Entity\Media
+     * @ORM\ManyToOne(targetEntity="App\Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"}, fetch="LAZY")
+     */
+    private $media;
      /**
      * @ORM\Column(type="boolean")
      */
@@ -167,6 +172,30 @@ class Product
     public function setIsNew($isNew)
     {
         $this->isNew = $isNew;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of media
+     *
+     * @return  MediaInterface 
+     */ 
+    public function getMedia()
+    {
+        return $this->media;
+    }
+
+    /**
+     * Set the value of media
+     *
+     * @param  MediaInterface  $media
+     *
+     * @return  self
+     */ 
+    public function setMedia(MediaInterface $media)
+    {
+        $this->media = $media;
 
         return $this;
     }

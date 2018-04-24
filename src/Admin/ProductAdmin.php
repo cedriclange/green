@@ -23,7 +23,11 @@ class ProductAdmin extends AbstractAdmin
             'property'=>'name',           
         ])
         ->add('isNew')
-        ->add('isDeleted');
+        ->add('isDeleted')
+        ->add('media', 'sonata_media_type', array(
+            'provider' => 'sonata.media.provider.image',
+            'context'  => 'engine'
+       ));
 
          
     }

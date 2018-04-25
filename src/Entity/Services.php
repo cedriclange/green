@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Application\Sonata\MediaBundle\Entity;
+use App\Application\Sonata\MediaBundle\Entity\Media;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ServicesRepository")
  * @ORM\Table(name="service_tbl")
@@ -29,7 +29,7 @@ class Services
      */
     private $price;
     /**
-     * @var App\Application\Sonata\MediaBundle\Entity\Media
+     * 
      * @ORM\ManyToOne(targetEntity="App\Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"}, fetch="LAZY")
      */
     private $media;
@@ -157,7 +157,7 @@ class Services
     /**
      * Get the value of media
      *
-     * @return  MediaInterface media
+     *
      */ 
     public function getMedia()
     {
@@ -167,11 +167,10 @@ class Services
     /**
      * Set the value of media
      *
-     * @param  MediaInterface $media
-     *
+       
      * @return  self
      */ 
-    public function setMedia(MediaInterface $media)
+    public function setMedia(Media $media)
     {
         $this->media = $media;
 

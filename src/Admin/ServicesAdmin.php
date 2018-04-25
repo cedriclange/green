@@ -32,6 +32,7 @@ class ServicesAdmin extends AbstractAdmin
             ->add('price')
             ->add('isNew')
             ->add('isActive')
+            ->add('media')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],

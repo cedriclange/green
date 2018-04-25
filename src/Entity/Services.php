@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use App\Application\Sonata\MediaBundle\Entity;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ServicesRepository")
  * @ORM\Table(name="service_tbl")
@@ -150,6 +150,30 @@ class Services
     public function setIsNew($isNew)
     {
         $this->isNew = $isNew;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of media
+     *
+     * @return  MediaInterface media
+     */ 
+    public function getMedia()
+    {
+        return $this->media;
+    }
+
+    /**
+     * Set the value of media
+     *
+     * @param  MediaInterface $media
+     *
+     * @return  self
+     */ 
+    public function setMedia(MediaInterface $media)
+    {
+        $this->media = $media;
 
         return $this;
     }

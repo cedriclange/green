@@ -179,7 +179,7 @@ class Product
     /**
      * Get the value of media
      *
-     * @return  MediaInterface 
+     * @return MediaInterface media
      */ 
     public function getMedia()
     {

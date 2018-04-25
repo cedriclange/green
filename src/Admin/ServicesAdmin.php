@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\MediaBundle\Form\Type\MediaType;
 
 class ServicesAdmin extends AbstractAdmin
 {
@@ -31,6 +32,7 @@ class ServicesAdmin extends AbstractAdmin
             ->add('price')
             ->add('isNew')
             ->add('isActive')
+            ->add('media')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
@@ -50,7 +52,11 @@ class ServicesAdmin extends AbstractAdmin
             ->add('price')
             ->add('isNew')
             ->add('isActive')
-        ;
+            ->add('media', MediaType::class, array(
+                'provider' => 'sonata.media.provider.image',
+                'context'  => 'service'
+           ));
+        
     }
 
     protected function configureShowFields(ShowMapper $showMapper)

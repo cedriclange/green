@@ -2,8 +2,11 @@
     <div class="col-md-6">
         <div class="men-pro-item simpleCart_shelfItem">
             <div class="men-thumb-item">
-                <img src="images/m8.jpg" alt="" class="pro-image-front">
-                <img src="images/m8.jpg" alt="" class="pro-image-back">
+                {% if item.media %}
+                    {% thumbnail item.media, 'big' with {'class':'pro-image-front'} %}
+                    {% thumbnail item.media, 'big' with {'class':'pro-image-back'} %}
+                {% endif %}
+                
                 <div class="men-cart-pro">
                     <div class="inner-men-cart-pro">
                         <a href="{{ path('show_service',{'id': item.id})}}" class="link-product-add-cart">Description</a>

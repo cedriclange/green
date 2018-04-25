@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Form\Type\ModelType;
-
+use Sonata\MediaBundle\Form\Type\MediaType;
 
 class ProductAdmin extends AbstractAdmin
 {
@@ -23,7 +23,11 @@ class ProductAdmin extends AbstractAdmin
             'property'=>'name',           
         ])
         ->add('isNew')
-        ->add('isDeleted');
+        ->add('isDeleted')
+        ->add('media', MediaType::class, array(
+            'provider' => 'sonata.media.provider.image',
+            'context'  => 'product'
+       ));
 
          
     }
@@ -39,9 +43,10 @@ class ProductAdmin extends AbstractAdmin
     {
         $listMapper->addIdentifier('name')
                     ->add('description')
-                    ->add('price')
-                    ->add('isDeleted')
+                    ->add('price')                   
                     ->add('isNew')
+                    ->add('media')
+                    ->add('isDeleted')
                     ->add('_action', null, [
                         'actions' => [
                             'show' => [],
